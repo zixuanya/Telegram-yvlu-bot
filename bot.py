@@ -25,8 +25,9 @@ def get_random_yvlu():
 
     return result[0] if result else "未找到语录"
 
-# 更改下面的filters.regex(r"^死妈6000元出来爆典$")里的内容达到自己的发送信息设置和filters的相关命令
-@app.on_message(filters.text & filters.regex(r"^死妈6000元出来爆典$") | filters.command("lqyyvlu"))
+# 更改下面的filters.regex(r"^6000元出来爆典$")里的内容达到自己的发送信息设置和filters的相关命令
+# 当然，你也可以更改regex的命中键来实现不同的效果
+@app.on_message(filters.text & filters.regex(r"^6000元出来爆典$") | filters.command("lqyyvlu"))
 async def send_random_yvlu(client, message):
     yvlu = get_random_yvlu()
     await message.reply_text(yvlu)
@@ -37,7 +38,7 @@ async def inline_query_handler(client, inline_query: InlineQuery):
 
     results = [
         InlineQueryResultArticle(
-            title="6000元的随机语录🤓", # inline 模式的 tittle
+            title="听听某人的小语录🤓", # inline 模式的 tittle
             input_message_content=InputTextMessageContent(yvlu)
         )
     ]
