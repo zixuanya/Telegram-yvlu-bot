@@ -1,0 +1,16 @@
+[Unit]
+Description=Telegram Yvlu Bot Service
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/files
+ExecStart=/files/venv/bin/python /files/bot.py # 更改files为你所在的文件夹
+Restart=always
+RestartSec=3
+KillMode=process
+TimeoutSec=infinity
+
+[Install]
+WantedBy=multi-user.target
